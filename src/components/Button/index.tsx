@@ -1,7 +1,14 @@
 import { ButtonStyle } from "./Button.style"
-const Button = ()=> {
+
+interface ButtonTypes {
+    text: string
+}
+
+const Button = ({text}: ButtonTypes)=> {
     return(
-        <ButtonStyle>Entrar</ButtonStyle>
+        <ButtonStyle>
+            {text}
+        </ButtonStyle>
     )
 }
 

@@ -21,5 +21,6 @@ export const ContainerInput = styled.div`
     justify-content: flex-start;
     margin-top: 3rem;
     gap: 2rem;
+    width: 100%;
    
 `

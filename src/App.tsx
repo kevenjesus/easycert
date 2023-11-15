@@ -1,11 +1,11 @@
 import { GlobalStyle } from './styles/global';
-import Login from './view/Login/Login';
+import Routes from './routes';
 
 function App() {
   return (
     <div>
       <GlobalStyle />
-      <Login/>
+      <Routes />
     </div>
   );
 }
