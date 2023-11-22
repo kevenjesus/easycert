@@ -1,10 +1,8 @@
 import Button from "../Button"
 import Input from "../Input"
 import Link from "../Link"
-import {Container, ContainerInput } from "./Form.style"
+import { Container, ContainerInput } from "./Form.style"
 import { ChangeEvent, useState } from "react"
-
-
 
 const  Form = ()=> {
     const [email, setEmail] = useState('')

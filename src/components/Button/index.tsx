@@ -1,8 +1,8 @@
 import { ButtonStyle } from "./Button.style"
 
-interface ButtonTypes {
+export interface ButtonTypes {
     text: string
-}
+} 
 
 const Button = ({text}: ButtonTypes)=> {
     return(
