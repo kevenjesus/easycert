@@ -1,1 +1,15 @@
-export {default} from "./Login"
+import Form from "../../components/Form/index"
+import { Container, Title } from "./Login.style"
+
+const Login = ()=> {
+    return(
+        
+        <Container>
+            <Title>Easy Cert</Title>
+            <Form></Form>
+        </Container>
+      
+    )
+}
+
+export default Login

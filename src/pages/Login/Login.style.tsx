@@ -17,7 +17,5 @@ export const Title = styled.h1`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-
-
 `
 
