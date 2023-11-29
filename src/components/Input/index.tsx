@@ -1,13 +1,37 @@
-import { ChangeEvent } from "react"
-import { InputStyle } from "./Input.style"
-export interface InputProps extends HTMLInputElement{
-   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
-   value: string
+import { ChangeEvent, InputHTMLAttributes } from "react"
+import { HelpText, InputConatiner, InputStyle } from "./Input.style"
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
+   error?: boolean
+   helpText?: string
 }
 
-const Input = ({...props})=> {
+interface PeopleType {
+    name: string
+    age: number
+    height: number
+}
+
+interface TeacherType extends PeopleType {
+    class: string
+    school: string
+}
+
+const teacher: TeacherType = {
+    class: 'turma A',
+    school: 'escola tal',
+    name: 'keven',
+    age: 30,
+    height: 120
+
+}
+
+const Input = ({error, helpText, ...rest}: InputProps)=> {
     return(
-        <InputStyle {...props} />
+        <InputConatiner>
+            <InputStyle error={error} {...rest} />
+            {error && <HelpText>{helpText}</HelpText>}
+        </InputConatiner>
     )
 }
 

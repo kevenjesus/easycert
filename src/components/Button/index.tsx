@@ -1,12 +1,13 @@
+import { ButtonHTMLAttributes } from "react"
 import { ButtonStyle } from "./Button.style"
 
-export interface ButtonTypes {
+export interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
     text: string
 } 
 
-const Button = ({text}: ButtonTypes)=> {
+const Button = ({text, ...rest}: ButtonTypes)=> {
     return(
-        <ButtonStyle>
+        <ButtonStyle {...rest}>
             {text}
         </ButtonStyle>
     )
