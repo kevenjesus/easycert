@@ -60,7 +60,7 @@ const  Form = ()=> {
                 <Input placeholder="Senha" error={errorPassword} helpText="Preencha o campo Senha" type="password" onChange={changePassword} value={password} />
                 <Link text="Esqueceu sua senha?"/>
             </ContainerInput>
-            <Button text='Entrando' onClick={onSubmit}></Button>
+            <Button text='Entrando' loadingText="Entrando..." onClick={onSubmit}></Button>
             <br />
             <p>Ainda não possui uma conta?</p>
             <br />

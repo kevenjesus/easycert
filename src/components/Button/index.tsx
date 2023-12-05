@@ -3,21 +3,21 @@ import { ButtonStyle } from "./Button.style"
 
 export interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
     text: string
-    loading: string
-    
+    loadingText: string
+    loading?: boolean
     
 } 
 
 
 
 
-const Button = ({text, ...rest}: ButtonTypes)=> {
+const Button = ({text, loadingText, loading, ...rest}: ButtonTypes)=> {
   
     return(
         <>
         <ButtonStyle {...rest}>
-            {text}
             
+            {loading  ? loadingText : text }
         </ButtonStyle>
        
         </>
