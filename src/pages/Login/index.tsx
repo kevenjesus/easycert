@@ -5,7 +5,7 @@ const Login = ()=> {
     return(
         
         <Container>
-            <Title>Easy Cert</Title>
+            <Title></Title>
             <Form></Form>
         </Container>
       

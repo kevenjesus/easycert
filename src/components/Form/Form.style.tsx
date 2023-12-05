@@ -20,6 +20,5 @@ export const ContainerInput = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 3rem;
-    width: 100%;
-   
+    width: 100%; 
 `

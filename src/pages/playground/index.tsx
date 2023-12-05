@@ -18,7 +18,25 @@ function Test({name, age}: TestTypes) {
         </div>
     )
 }
+interface PeopleType {
+    name: string
+    age: number
+    height: number
+}
 
+interface TeacherType extends PeopleType {
+    class: string
+    school: string
+}
+
+const teacher: TeacherType = {
+    class: 'turma A',
+    school: 'escola tal',
+    name: 'keven',
+    age: 30,
+    height: 120
+
+}
 const func = () => console.log('rodou')
 
 function Elements({data}: ElementsType) {
@@ -85,3 +103,4 @@ export default function Playground() {
         </>
     )
 }
+
