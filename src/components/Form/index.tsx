@@ -1,18 +1,27 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import Button from "../Button"
 import Input from "../Input"
 import Link from "../Link"
 import { Container, ContainerInput } from "./Form.style"
 import { ChangeEvent, useState } from "react"
 import EasyCert from '../../assets/images/EasyCert.png'
-import { text } from "stream/consumers"
+import { json, text } from "stream/consumers"
 import userEvent from "@testing-library/user-event"
+
+interface fetchLoginData {
+    email: string
+    password: string
+}
+
 
 const  Form = ()=> {
     const [email, setEmail] = useState('')
     const [password, setpassword] = useState('')
     const [errorEmail, setErrorEmail] = useState(false)
     const [errorPassword, setErrorPassword] = useState(false)
-  
+    const [loading, setLoading] = useState(false)
+   
 
     const changeEmail = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value
@@ -23,7 +32,6 @@ const  Form = ()=> {
         setpassword(value)
     }
 
-    
      
     const validateForm = () => {
         if(email === '') {
@@ -42,25 +50,56 @@ const  Form = ()=> {
 
         return true
     }
-
     
+    
+
+    const cleanForm = ()=> {
+        setEmail('')
+        setpassword('')
+        setLoading(false)
+    }
+    
+    const fetchLogin = async (data:fetchLoginData) =>{
+    
+        try{
+            await fetch('https://jsonplaceholder.typicode.com/todoos/1')
+            .then(response => response.json())
+            .then(json => console.log(json))
+            console.log('Oii')
+
+        }catch(error){
+            console.log('Fudeu')
+            
+        }finally{
+            cleanForm()
+            console.log('oiiiiiiii')
+        }
+
+    }    
 
     const onSubmit = () => {
         if(validateForm()) {
-            console.log('manda os dados para backend', {email, password})
+            setLoading(true)
+            setTimeout(()=> fetchLogin({email, password}), 2000)
+            toast.success('Login efetuado com sucesso')
+            
+        }else{
+            toast.error('Ops! Acesso negado!')
         }
     }
 
-  
+    
+
     return (
         <Container>
             <img src={EasyCert} alt="" />
+           
             <ContainerInput>
                 <Input placeholder="email" error={errorEmail} helpText="Preencha o campo Email" type="text" onChange={changeEmail} value={email}  />
                 <Input placeholder="Senha" error={errorPassword} helpText="Preencha o campo Senha" type="password" onChange={changePassword} value={password} />
                 <Link text="Esqueceu sua senha?"/>
             </ContainerInput>
-            <Button text='Entrando' loadingText="Entrando..." onClick={onSubmit}></Button>
+            <Button text='Entrar' loadingText="Entrando..." loading={loading} onClick={onSubmit}></Button>
             <br />
             <p>Ainda não possui uma conta?</p>
             <br />

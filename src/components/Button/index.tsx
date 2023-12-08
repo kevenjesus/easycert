@@ -15,8 +15,7 @@ const Button = ({text, loadingText, loading, ...rest}: ButtonTypes)=> {
   
     return(
         <>
-        <ButtonStyle {...rest}>
-            
+        <ButtonStyle {...rest} loading={loading}>
             {loading  ? loadingText : text }
         </ButtonStyle>
        
