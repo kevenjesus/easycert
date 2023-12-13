@@ -8,9 +8,6 @@ export interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
     
 } 
 
-
-
-
 const Button = ({text, loadingText, loading, ...rest}: ButtonTypes)=> {
   
     return(

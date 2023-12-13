@@ -8,6 +8,7 @@ import { ChangeEvent, useState } from "react"
 import EasyCert from '../../assets/images/EasyCert.png'
 import { json, text } from "stream/consumers"
 import userEvent from "@testing-library/user-event"
+import { Logo } from './Form.style';
 
 interface fetchLoginData {
     email: string
@@ -65,10 +66,11 @@ const  Form = ()=> {
             await fetch('https://jsonplaceholder.typicode.com/todoos/1')
             .then(response => response.json())
             .then(json => console.log(json))
-            console.log('Oii')
+            toast.success('Login efetuado com sucesso')
 
         }catch(error){
             console.log('Fudeu')
+            toast.error('Ops! Acesso negado!')
             
         }finally{
             cleanForm()
@@ -81,18 +83,19 @@ const  Form = ()=> {
         if(validateForm()) {
             setLoading(true)
             setTimeout(()=> fetchLogin({email, password}), 2000)
-            toast.success('Login efetuado com sucesso')
+           
             
         }else{
-            toast.error('Ops! Acesso negado!')
+            
         }
     }
 
     
 
     return (
+    <>
+        <Logo src={EasyCert} alt="" />
         <Container>
-            <img src={EasyCert} alt="" />
            
             <ContainerInput>
                 <Input placeholder="email" error={errorEmail} helpText="Preencha o campo Email" type="text" onChange={changeEmail} value={email}  />
@@ -104,8 +107,11 @@ const  Form = ()=> {
             <p>Ainda não possui uma conta?</p>
             <br />
             <Link text="Crie uma conta grátis"/>
-            
         </Container>
+    
+    
+    
+    </>
     )
 }
 

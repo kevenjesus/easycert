@@ -8,6 +8,11 @@ export const Container = styled.div`
     align-items: center;
     width: 100vw;
     height: 100vh;
+
+    @media  (max-width: 768px) {
+        
+            
+    }
 `
 
 export const Title = styled.h1`

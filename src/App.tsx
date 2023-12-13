@@ -17,6 +17,8 @@ function App() {
         <ToastContainer 
           theme='colored'
           hideProgressBar={true}
+          autoClose={5000}
+          icon={false}
         />
       </div>
     </div>

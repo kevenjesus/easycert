@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+
 export const Container = styled.div`
 
 width: 380px;
@@ -13,6 +15,12 @@ flex-direction: column;
 align-items: center;
 padding: 0 1rem;
 
+@media screen and (max-width: 768px){
+        body{
+            background-color: aqua;
+        }
+    }
+
 `
 
 export const ContainerInput = styled.div`
@@ -21,4 +29,10 @@ export const ContainerInput = styled.div`
     justify-content: flex-start;
     margin-top: 3rem;
     width: 100%; 
+`
+
+export const Logo = styled.img`
+    padding-bottom:30px;
+    
+
 `

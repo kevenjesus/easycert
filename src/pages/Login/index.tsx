@@ -3,12 +3,12 @@ import { Container, Title } from "./Login.style"
 
 const Login = ()=> {
     return(
-        
+        <>
+        <Title></Title>
         <Container>
-            <Title></Title>
             <Form></Form>
         </Container>
-      
+        </>
     )
 }
 
