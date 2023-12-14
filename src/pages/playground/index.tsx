@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState, useMemo } from "react"
 
 
 interface TestTypes {
@@ -76,6 +76,13 @@ function Loading({hideLoadding}: LoadingType) {
 export default function Playground() {
     const [loading, setLoading] = useState(true)
     const [data, setdata] = useState<number[]>([])
+    const [name, setName] = useState('')
+
+    const getName = ()=> {
+        console.log(setName('Thalles'))
+    }
+
+    getName()
 
     const hideLoadding = (data = [1]) => {
         setLoading(false)
