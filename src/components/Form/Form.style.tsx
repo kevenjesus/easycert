@@ -11,15 +11,9 @@ border-radius: 27px;
 background: #FFF;
 display: flex;
 flex-direction: column;
-/* justify-content: center; */
+justify-content: center;
 align-items: center;
 padding: 0 1rem;
-
-@media screen and (max-width: 768px){
-        body{
-            background-color: aqua;
-        }
-    }
 
 `
 
@@ -34,5 +28,4 @@ export const ContainerInput = styled.div`
 export const Logo = styled.img`
     padding-bottom:30px;
     
-
 `

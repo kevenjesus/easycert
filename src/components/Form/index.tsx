@@ -7,7 +7,7 @@ import { Container, ContainerInput } from "./Form.style"
 import { ChangeEvent, useState } from "react"
 import EasyCert from '../../assets/images/EasyCert.png'
 import { json, text } from "stream/consumers"
-import userEvent from "@testing-library/user-event"
+import userEvent from '@testing-library/user-event';
 import { Logo } from './Form.style';
 
 interface fetchLoginData {
@@ -82,21 +82,14 @@ const  Form = ()=> {
     const onSubmit = () => {
         if(validateForm()) {
             setLoading(true)
-            setTimeout(()=> fetchLogin({email, password}), 2000)
-           
-            
-        }else{
-            
+            setTimeout(()=> fetchLogin({email, password}), 2000)  
         }
     }
-
-    
 
     return (
     <>
         <Logo src={EasyCert} alt="" />
         <Container>
-           
             <ContainerInput>
                 <Input placeholder="email" error={errorEmail} helpText="Preencha o campo Email" type="text" onChange={changeEmail} value={email}  />
                 <Input placeholder="Senha" error={errorPassword} helpText="Preencha o campo Senha" type="password" onChange={changePassword} value={password} />
@@ -108,9 +101,6 @@ const  Form = ()=> {
             <br />
             <Link text="Crie uma conta grátis"/>
         </Container>
-    
-    
-    
     </>
     )
 }

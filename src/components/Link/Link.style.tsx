@@ -9,6 +9,7 @@ export const LinkStyle = styled.a`
     font-weight: 400;
     line-height: normal;
     margin-bottom: 2rem;
+    align-self: center;
     cursor: pointer;
 
 `

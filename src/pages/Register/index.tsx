@@ -1,16 +1,14 @@
-import Form from "../../components/Form"
-import { Container, Title } from "../Login/Login.style"
+
+
+import FormResgister from "../../components/FormRegister"
+import { Container } from "../Login/Login.style"
 
 const Register = ()=> {
     return(
         <>
-        <Title></Title>
-        <Container>
-            
-        </Container>
-          
-        
-        
+            <Container>
+                <FormResgister></FormResgister>
+            </Container>
         </>
     )
 }
