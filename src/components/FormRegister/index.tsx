@@ -7,7 +7,7 @@ import EasyCert from "../../assets/images/EasyCert.png"
 import { ChangeEvent, useState } from "react"
 
 const FormResgister = ()=> {
-
+    //hooks
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -31,21 +31,25 @@ const FormResgister = ()=> {
 
     const isValidEmail = (event: ChangeEvent<HTMLInputElement>)=> {
         const value = event.target.value
+        console.log(value)
         setEmail(value.trim())
     }
 
     const isValidPhone = (event: ChangeEvent<HTMLInputElement>)=> {
         const value = event.target.value
+        console.log(value)
         setPhone(value.trim())
     }
 
     const isValidPassword = (event: ChangeEvent<HTMLInputElement>)=> {
-        const value = event.target.value 
+        const value = event.target.value
+        console.log(value) 
         setPassword(value.trim())
     }
 
     const isValidRepeatPassword = (event: ChangeEvent<HTMLInputElement>)=> {
         const value = event.target.value
+        console.log(value)
         setRepeatPassword(value.trim())
     }
 
@@ -54,7 +58,7 @@ const FormResgister = ()=> {
         if(name === '' && name.length < 2){
             setErrorName(true)
         }
-        if(email === ''){
+        if(email === '' && !email.includes('@')){
             setErrorEmail(true)
         }
         if(phone === ''){
@@ -78,7 +82,7 @@ const FormResgister = ()=> {
     }
 
     const onSubmitFormRegister = ()=> {
-        
+       
     }
 
 
@@ -90,10 +94,10 @@ const FormResgister = ()=> {
                     <Container>
                         <ContainerInput>
                             <Input placeholder="Nome" type="text" error={errorName} helpText="Campo nome é obrigatório"  onChange={isValidName} value={name}></Input>
-                            <Input placeholder="Email" type="text" error={errorEmail} helpText="Informe um email valido" onChange={isValidEmail} value={email}></Input>
+                            <Input placeholder="Email" type="email" error={errorEmail} helpText="Informe um email valido" onChange={isValidEmail} value={email}></Input>
                             <Input placeholder="Telefone" type="text" error={errorPhone} helpText="Campo telefone é obrigatório" onChange={isValidPhone} value={phone}></Input>
-                            <Input placeholder="Senha" type="text" error={errorPassword} helpText="A senha deve conter pelo menos 6 caracteres" onChange={isValidPassword} value={password}></Input>
-                            <Input placeholder="Repetir senha" type="text" error={errorRepeatPassword} helpText="As senhas não são compativeis" onChange={isValidRepeatPassword} value={repeatPassword}></Input>
+                            <Input placeholder="Senha" type="password" error={errorPassword} helpText="A senha deve conter pelo menos 6 caracteres" onChange={isValidPassword} value={password}></Input>
+                            <Input placeholder="Repetir senha" type="password" error={errorRepeatPassword} helpText="As senhas não são compativeis" onChange={isValidRepeatPassword} value={repeatPassword}></Input>
                         </ContainerInput>
                         <Button text="Cadastrar" loadingText="Cadastrando..." onClick={validateFormRegister}></Button>
                         <br />
