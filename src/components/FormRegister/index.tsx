@@ -22,54 +22,80 @@ const FormResgister = ()=> {
     const [errorRepeatPassword, setErrorRepeatPassword] = useState(false)
     
 
-    const isValidName = (event: ChangeEvent<HTMLInputElement>) => {
+    const isValidName = (event: ChangeEvent<HTMLInputElement>) => {//trocar para change
         const value = event.target.value
-        console.log(value)
+        if(value.length < 2){
+            setErrorName(true)
+        }else{
+            setErrorName(false)
+        }
         setName(value.trim())
-
     }
 
     const isValidEmail = (event: ChangeEvent<HTMLInputElement>)=> {
         const value = event.target.value
-        console.log(value)
+        if(value.length < 2 && value.includes('@')){
+            setErrorEmail(true)
+        }else{
+            setErrorEmail(false)
+        }
         setEmail(value.trim())
     }
 
     const isValidPhone = (event: ChangeEvent<HTMLInputElement>)=> {
         const value = event.target.value
-        console.log(value)
+        if(value.length < 2){
+            setErrorPhone(true)
+        }else{
+            setErrorPhone(false)
+        }
         setPhone(value.trim())
     }
 
     const isValidPassword = (event: ChangeEvent<HTMLInputElement>)=> {
         const value = event.target.value
-        console.log(value) 
+        if(value.length < 2){
+            setErrorPassword(true)
+        }else{
+            setErrorPassword(false)
+        }
         setPassword(value.trim())
     }
 
     const isValidRepeatPassword = (event: ChangeEvent<HTMLInputElement>)=> {
         const value = event.target.value
-        console.log(value)
+        if(value.length < 2){
+            setErrorName(true)
+        }else{
+            setErrorName(false)
+        }
         setRepeatPassword(value.trim())
     }
 
+
     const validateFormRegister = ()=> {
         
-        if(name === '' && name.length < 2){
+        if(name.length < 2){
             setErrorName(true)
+            return false
         }
-        if(email === '' && !email.includes('@')){
+        if(!email.includes('@')){
             setErrorEmail(true)
+            return false
         }
         if(phone === ''){
             setErrorPhone(true)
+            return false
         }
         if(password === ''){
             setErrorPassword(true)
+            return false
         }
         if(repeatPassword === ''){
             setErrorRepeatPassword(true)
+            return false
         }
+        return true
 
     }
 
@@ -93,7 +119,7 @@ const FormResgister = ()=> {
                 <FormRegisterStyle>
                     <Container>
                         <ContainerInput>
-                            <Input placeholder="Nome" type="text" error={errorName} helpText="Campo nome é obrigatório"  onChange={isValidName} value={name}></Input>
+                            <Input id='name' placeholder="Nome" type="text" error={errorName} helpText="Campo nome é obrigatório"  onChange={isValidName} value={name}></Input>
                             <Input placeholder="Email" type="email" error={errorEmail} helpText="Informe um email valido" onChange={isValidEmail} value={email}></Input>
                             <Input placeholder="Telefone" type="text" error={errorPhone} helpText="Campo telefone é obrigatório" onChange={isValidPhone} value={phone}></Input>
                             <Input placeholder="Senha" type="password" error={errorPassword} helpText="A senha deve conter pelo menos 6 caracteres" onChange={isValidPassword} value={password}></Input>
